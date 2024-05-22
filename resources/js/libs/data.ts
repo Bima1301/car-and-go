@@ -5,8 +5,8 @@ export const links = [
           href: "/",
      },
      {
-          name: "About Us",
-          hash: "about-us",
-          href: "/about-us",
-     },
+          name: "History",
+          hash: "history",
+          href: "/history"
+     }
 ] as const;

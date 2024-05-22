@@ -21,7 +21,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
         >
             <Link href='/' className='md:hidden flex flex-row items-center gap-3'>
-                <img src='/images/logo.png' alt='BDK MEDAN' className='w-14 h-1w-14' />
+                <img src='/images/logo.png' alt='Card And Go' className='h-6' />
             </Link>
             <div className='md:hidden flex gap-3 items-center'>
                 {user && (
@@ -29,9 +29,6 @@ export default function Navbar() {
                         <Link
                             href={'/notifikasi'}
                         >
-                            <IconButton className='!absolute -top-3 -right-3 z-10 w-fit h-fit'>
-                                <Icon icon="fxemoji:ringingbell" className='text-xl text-gray-600' />
-                            </IconButton>
                         </Link>
                         <DropdownUser />
                     </div>
@@ -43,7 +40,7 @@ export default function Navbar() {
                 </button>
             </div>
             <Link href="/" className='md:flex hidden flex-row items-center gap-4'>
-                <img src='/images/logo.png' alt='BDK MEDAN' className='h-12 ' />
+                <img src='/images/logo.png' alt='Card And Go' className='h-12 ' />
             </Link>
             <div className='md:flex hidden flex-row lg:gap-[16px] gap-12 items-center text-gray-800 text-lg font-medium'>
                 {links.map((link, index) => (
@@ -63,9 +60,6 @@ export default function Navbar() {
                         <Link
                             href={'/notifikasi'}
                         >
-                            <IconButton className='!absolute -top-3 -right-3 z-10 w-fit h-fit'>
-                                <Icon icon="fxemoji:ringingbell" className='text-xl text-gray-600' />
-                            </IconButton>
                         </Link>
                         <DropdownUser />
 
@@ -78,7 +72,7 @@ export default function Navbar() {
                             Masuk
                         </Button>
                         <Button variant='secondary' className='md:text-sm'
-                            isLink href={'/signup'}
+                            isLink href={'/register'}
                         >
                             Daftar
                         </Button>

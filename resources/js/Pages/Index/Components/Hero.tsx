@@ -78,12 +78,12 @@ export default function Hero() {
                         </p>
                         <Grid container spacing={2} className="w-full">
                             <Grid item xs={6} sm={4} lg={4}>
-                                <TextField variant='outlined' label='Cari Apa Aja' type="text" size="small" sx={{ marginTop: '8px' }}
+                                <TextField variant='outlined' label='Search' type="text" size="small" sx={{ marginTop: '8px' }}
                                     value={query.search}
                                     onChange={(e) => {
                                         setQuery({ ...query, search: e.target.value })
                                     }}
-                                    placeholder="Cari apapun disini ..."
+                                    placeholder="Search everything here..."
                                     fullWidth
                                     InputProps={{
                                         endAdornment: (
@@ -114,7 +114,7 @@ export default function Hero() {
                                         onChange={(e: any) => {
                                             setQuery({ ...query, startDate: moment(e.toISOString()).format('YYYY-MM-DD') })
                                         }}
-                                        customInput={<CustomInput fullWidth label='Check-In' sx={{ marginTop: '8px' }} />}
+                                        customInput={<CustomInput fullWidth label='Start date' sx={{ marginTop: '8px' }} />}
                                     />
                                 </DatePickerWrapper>
                             </Grid>
@@ -142,7 +142,7 @@ export default function Hero() {
                                         onChange={(e: any) => {
                                             setQuery({ ...query, endDate: moment(e.toISOString()).format('YYYY-MM-DD') })
                                         }}
-                                        customInput={<CustomInput fullWidth label='Check-Out' sx={{ marginTop: '8px' }} />}
+                                        customInput={<CustomInput fullWidth label='End date' sx={{ marginTop: '8px' }} />}
                                     />
                                 </DatePickerWrapper>
                             </Grid>
@@ -152,7 +152,7 @@ export default function Hero() {
                                     // disabled={!query.type || !query.startDate || !query.endDate || !query.guest}
                                     onClick={handleSearchBooking}
                                 >
-                                    Cari
+                                    Search
                                 </Button>
                             </Grid>
                         </Grid>

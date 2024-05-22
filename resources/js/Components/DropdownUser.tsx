@@ -63,7 +63,7 @@ export default function DropdownUser() {
                     aria-haspopup="true"
                     onClick={handleToggle}
                 >
-                    <img className="rounded-full cursor-pointer w-full" alt={auth?.user?.name} src={auth?.user?.avatar || "/images/no-user.png"}
+                    <img className="rounded-full cursor-pointer w-full" alt={auth?.user?.name} src={auth?.user?.avatar || "/images/no-user.jpg"}
                     />
                 </IconButton>
                 <Popper
@@ -95,9 +95,9 @@ export default function DropdownUser() {
                                         }}
                                     >
                                         <div className='p-5 flex flex-col gap-1'>
-                                            <p className="text-base font-semibold">{auth?.user?.name}
+                                            <p className="text-lg font-semibold">{auth?.user?.name}
                                             </p>
-                                            <p className="text-xs text-gray-500">{auth?.user?.email}
+                                            <p className="text-sm text-gray-500">{auth?.user?.email}
                                             </p>
                                         </div>
 
@@ -117,12 +117,12 @@ export default function DropdownUser() {
                                             e.preventDefault();
 
                                             handleClose(e);
-                                            router.visit('/notifikasi');
+                                            router.visit('/garage');
                                         }}>
                                             <ListItemIcon>
-                                                <Icon icon="iconoir:bell-notification" />
+                                                <Icon icon="cil:garage" />
                                             </ListItemIcon>
-                                            Notifikasi
+                                            Garage
                                         </MenuItem>
                                         <MenuItem onClick={(e: any) => {
                                             e.preventDefault();

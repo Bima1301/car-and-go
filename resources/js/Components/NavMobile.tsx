@@ -77,8 +77,7 @@ export default function NavMobile({ navMobileOpen, setNavMobileOpen }: NavMobile
             <div className='flex h-full flex-col'>
                 <div className='flex justify-between items-center bg-white px-5 border-b border-b-gray-200 shadow'>
                     <Link href="home" onClick={() => setNavMobileOpen(false)} className=' py-5 flex flex-row items-center gap-3'>
-                        <img src='/images/logo.png' alt='BDK MEDAN' className='w-10 h-10' />
-                        <small className='font-semibold'>BDK MEDAN <br /> KEMENTERIAN AGAMA RI</small>
+                        <img src='/images/logo.png' alt='Card And Go' className=' h-10' />
                     </Link>
                     <button onClick={() => setNavMobileOpen(!navMobileOpen)}>
                         <Icon icon="fa:times" className='text-black' />
@@ -114,7 +113,7 @@ export default function NavMobile({ navMobileOpen, setNavMobileOpen }: NavMobile
                                     Masuk
                                 </Button>
                                 <Button variant='secondary'
-                                    isLink href={'/signup'}
+                                    isLink href={'/register'}
                                 >
                                     Daftar
                                 </Button>

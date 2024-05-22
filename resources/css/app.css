@@ -6,3 +6,6 @@ input:focus {
      outline: none !important;
      --tw-ring-color: transparent !important;
 }
+.MuiDataGrid-virtualScroller {
+     min-height: 100px;
+ }

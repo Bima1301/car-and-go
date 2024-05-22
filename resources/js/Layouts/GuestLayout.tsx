@@ -5,7 +5,7 @@ import MuiThemeProvider from './MuiThemeProvicer';
 export default function Guest({ children }: PropsWithChildren) {
     return (
         <MuiThemeProvider>
-            <div className="bg-white w-full text-black relative ">
+            <div className="bg-gray-100 w-full text-black relative min-h-screen">
                 <Navbar />
                 {children}
             </div>

@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material';
 import { PropsWithChildren } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 export default function MuiThemeProvider({ children }: PropsWithChildren) {
      const theme = createTheme({
@@ -70,6 +71,7 @@ export default function MuiThemeProvider({ children }: PropsWithChildren) {
      })
      return (
           <ThemeProvider theme={theme}>
+               <Toaster />
                {children}
           </ThemeProvider>
      );
