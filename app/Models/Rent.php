@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class Rent extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'brand',
-        'model',
-        'slug',
-        'plate_number',
-        'image',
-        'price',
+        'user_id',
+        'car_id',
+        'start_date',
+        'end_date',
+        'total_price',
+        'status',
     ];
 
     public function user()
@@ -23,8 +22,8 @@ class Car extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function rents()
+    public function car()
     {
-        return $this->hasMany(Rent::class);
+        return $this->belongsTo(Car::class);
     }
 }

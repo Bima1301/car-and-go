@@ -76,7 +76,7 @@ export default function NavMobile({ navMobileOpen, setNavMobileOpen }: NavMobile
             className="fixed origin-top top-0 left-0 right-0 bottom-0 bg-white z-50 w-full h-screen">
             <div className='flex h-full flex-col'>
                 <div className='flex justify-between items-center bg-white px-5 border-b border-b-gray-200 shadow'>
-                    <Link href="home" onClick={() => setNavMobileOpen(false)} className=' py-5 flex flex-row items-center gap-3'>
+                    <Link href="/" onClick={() => setNavMobileOpen(false)} className=' py-5 flex flex-row items-center gap-3'>
                         <img src='/images/logo.png' alt='Card And Go' className=' h-10' />
                     </Link>
                     <button onClick={() => setNavMobileOpen(!navMobileOpen)}>
@@ -94,7 +94,7 @@ export default function NavMobile({ navMobileOpen, setNavMobileOpen }: NavMobile
                             <motion.li
                                 variants={menuItemsMotion}
                                 key={index}>
-                                <Link href={link.hash}
+                                <Link href={link.href   }
                                     onClick={() => setNavMobileOpen(false)}
                                     className={`${pathname == link.href ? "text-orange-800" : "text-black hover:text-gray-300"} text-lg font-semibold`}                                >
                                     {link.name}

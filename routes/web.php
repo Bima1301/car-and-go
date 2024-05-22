@@ -3,6 +3,7 @@
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -11,6 +12,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/history', [HomeController::class, 'history'])->name('history')->middleware('auth');
 Route::get('/garage', [CarController::class, 'garage'])->name('garage')->middleware('auth');
 Route::resource('cars', CarController::class)->middleware('auth');
+Route::resource('rents', RentController::class)->middleware('auth');
 
 
 Route::middleware('auth')->group(function () {

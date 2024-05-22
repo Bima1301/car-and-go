@@ -38,6 +38,7 @@ export default function DialogEdit({ open, onClose, values }: DialogAddProps) {
      const handleClose = () => {
           reset()
           setIsLoading(false)
+          setImagePreview('')
           onClose(false)
      }
      const handleImageChange = (e: any) => {
@@ -62,7 +63,7 @@ export default function DialogEdit({ open, onClose, values }: DialogAddProps) {
                     setIsLoading(false)
                     toast.error('Failed to edit car, please check your data')
                },
-               onFinish: () => {
+               onSuccess: () => {
                     setIsLoading(false)
                     toast.success('Success edit car')
                     handleClose()

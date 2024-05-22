@@ -6,7 +6,7 @@ export default function Garage() {
      return (
           <Guest>
                <Head title="Garage" />
-               <div className="pt-24 lg:px-[100px]">
+               <div className="pt-24 lg:px-[100px] md:px-8 px-4">
                     <TableGarage />
                </div>
           </Guest>

@@ -11,21 +11,21 @@ import { usePage } from '@inertiajs/react';
 import { PageProps } from '@/types';
 import { router } from '@inertiajs/react';
 import { formatPrice } from '@/libs/utils';
+import DialogDetail from '../dialog/DialogDetail';
 
 export default function TableGarage() {
      const props = usePage<PageProps>().props
      const { cars } = usePage<any>().props
 
-     const [query, setQuery] = useState({
+     const [query, setQuery] = useState<any>({
           page: 1,
           search: props.searchParams ? props.searchParams : "",
      });
 
      const startIndex = (cars.meta.current_page - 1) * cars.meta.per_page + 1;
 
-     const [search, setSearch] = useState('')
 
-
+     const [isDialogDetailOpen, setIsDialogDetailOpen] = useState<boolean>(false)
      const [isDialogAddOpen, setIsDialogAddOpen] = useState<boolean>(false)
      const [isDialogEditOpen, setIsDialogEditOpen] = useState<boolean>(false)
      const [isDialogDeleteOpen, setIsDialogDeleteOpen] = useState<boolean>(false)
@@ -76,7 +76,7 @@ export default function TableGarage() {
                     <CardContent>
                          <div className="flex sm:flex-row flex-col gap-4 justify-between items-center mb-8">
                               <TextField variant='outlined' type="text" sx={{ marginTop: '8px', maxWidth: "200px" }}
-                                   defaultValue={search}
+                                   defaultValue={query.search}
                                    onChange={(e) => handleSearch(e)}
                                    fullWidth
                                    size="small"
@@ -157,6 +157,13 @@ export default function TableGarage() {
                                                             <td className="text-left py-1 px-4">
                                                                  <div className="flex items-center gap-2">
                                                                       <IconButton onClick={() => {
+                                                                           setIsDialogDetailOpen(true)
+                                                                           setItemSelected(item)
+                                                                      }
+                                                                      }>
+                                                                           <Icon icon="mdi:eye-outline" />
+                                                                      </IconButton>
+                                                                      <IconButton onClick={() => {
                                                                            setIsDialogEditOpen(true)
                                                                            setItemSelected(item)
                                                                       }
@@ -187,7 +194,7 @@ export default function TableGarage() {
                                              router.get(
                                                   route('garage'),
                                                   {
-                                                       search: search,
+                                                       search: query.search as string,
                                                        page: value,
                                                   },
                                                   {
@@ -205,6 +212,8 @@ export default function TableGarage() {
                          </Box>
                     </CardContent>
                </Card>
+
+               <DialogDetail open={isDialogDetailOpen} onClose={setIsDialogDetailOpen} values={itemSelected} />
 
                <DialogAdd open={isDialogAddOpen} onClose={setIsDialogAddOpen} />
 

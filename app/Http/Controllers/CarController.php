@@ -8,6 +8,7 @@ use App\Http\Resources\DataCollection;
 use App\Models\Car;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
 class CarController extends Controller
 {
@@ -25,7 +26,7 @@ class CarController extends Controller
 
         $query = Car::query();
 
-        $query->where('user_id', auth()->id());
+        $query->where('user_id', auth()->id())->with('rents', 'rents.user');
 
         if ($searchParams) {
             $query->where('brand', 'LIKE', '%' . $searchParams . '%')
@@ -58,6 +59,7 @@ class CarController extends Controller
 
         $request->user()->cars()->create([
             'brand' => $request->brand,
+            'slug' => Str::slug($request->brand . ' ' . $request->model . ' ' . now()->timestamp),
             'model' => $request->model,
             'plate_number' => $request->plate_number,
             'image' => $request->file('image')->store('cars', 'public'),
@@ -91,6 +93,7 @@ class CarController extends Controller
     {
         $car->update([
             'brand' => $request->brand,
+            'slug' => Str::slug($request->brand . ' ' . $request->model . ' ' . now()->timestamp),
             'model' => $request->model,
             'plate_number' => $request->plate_number,
             'price' => $request->price,

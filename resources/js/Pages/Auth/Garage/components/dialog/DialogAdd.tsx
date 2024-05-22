@@ -22,7 +22,7 @@ type DialogAddProps = {
 
 export default function DialogAdd({ open, onClose }: DialogAddProps) {
 
-     const { data, setData, post, progress, wasSuccessful, errors, reset } = useForm({
+     const { data, setData, post, errors, reset } = useForm({
           brand: '',
           model: '',
           plate_number: '',
@@ -36,6 +36,7 @@ export default function DialogAdd({ open, onClose }: DialogAddProps) {
      const handleClose = () => {
           reset()
           setIsLoading(false)
+          setImagePreview('')
           onClose(false)
      }
      const handleImageChange = (e: any) => {
@@ -59,7 +60,7 @@ export default function DialogAdd({ open, onClose }: DialogAddProps) {
                     setIsLoading(false)
                     toast.error('Failed to add car, please check your data')
                },
-               onFinish: () => {
+               onSuccess: () => {
                     setIsLoading(false)
                     toast.success('Success add car')
                     handleClose()
