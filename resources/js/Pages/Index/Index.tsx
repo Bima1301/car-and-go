@@ -133,6 +133,8 @@ export default function Welcome({ cars, params, auth }: { cars: any, params: any
                                     route('home'),
                                     {
                                         search: query.search,
+                                        start_date: query.start_date,
+                                        end_date: query.end_date,
                                         page: value,
                                     },
                                     {

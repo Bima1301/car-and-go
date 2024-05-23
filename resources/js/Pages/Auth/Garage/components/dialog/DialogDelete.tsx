@@ -30,7 +30,7 @@ export default function DialogDelete({ open, onClose, values }: DialogDeleteProp
 
      const handleDelete = () => {
           setIsLoading(true)
-          router.delete(route('cars.destroy', values.id), {
+          router.delete(route('cars.destroy', values.slug), {
                preserveScroll: true,
                onError: (errors) => {
                     console.log('errors', errors);

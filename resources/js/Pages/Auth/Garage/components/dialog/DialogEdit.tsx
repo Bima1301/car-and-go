@@ -57,7 +57,7 @@ export default function DialogEdit({ open, onClose, values }: DialogAddProps) {
           e.preventDefault()
           setIsLoading(true)
 
-          post(route('cars.update', values.id), {
+          post(route('cars.update', values.slug), {
                onError: (errors) => {
                     console.log('errors', errors);
                     setIsLoading(false)

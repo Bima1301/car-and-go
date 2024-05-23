@@ -9,6 +9,7 @@ import DialogReturn from './Components/DialogReturn';
 export default function History({ rents }: { rents: any }) {
      const [isDialogReturnOpen, setIsDialogReturnOpen] = useState<boolean>(false)
      const [selectedRent, setSelectedRent] = useState<any>(null)
+     console.log(rents);
      return (
           <Guest>
                <Head title='Histrory' />
@@ -41,7 +42,7 @@ export default function History({ rents }: { rents: any }) {
                                                             {moment(item?.start_date).format('DD MMMM YYYY')} {' '} - {' '}
                                                             {moment(item?.end_date).format('DD MMMM YYYY')}
                                                        </p>
-                                                       <p className={`text-sm font-semibold text-white bg-orange-500 px-2 py-1 rounded-lg ${item?.status === 'rented' ? 'bg-green-500' : 'bg-gray-500'} w-fit`}
+                                                       <p className={`text-sm font-semibold text-white px-2 py-1 rounded-lg ${item?.status === 'rented' ? 'bg-green-500' : 'bg-gray-500'} w-fit`}
                                                        >
                                                             {item?.status === 'rented' ? 'On Going' : 'Returned'}
                                                        </p>

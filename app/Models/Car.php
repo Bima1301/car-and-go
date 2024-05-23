@@ -18,6 +18,11 @@ class Car extends Model
         'price',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
